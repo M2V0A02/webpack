@@ -1,4 +1,4 @@
-export class Unit{
+class Unit{
     constructor(name, size, health, leadership, meleeAttack, meleeDefence,
         chargeBonus, weaponDamageArmourPiercing, weaponDamage, armor){
         this.name = name;
@@ -12,4 +12,19 @@ export class Unit{
         this.weaponDamageArmourPiercing = weaponDamageArmourPiercing;
         this.armor = armor;
     }; 
+
+    toString() {
+        return JSON.stringify( {
+            name: this.title,
+            size: this.date,
+            health: this.health,
+            leadership: this.leadership,
+            meleeAttack: this.meleeAttack,
+            meleeDefence: this.meleeDefence,
+            chargeBonus: this.chargeBonus,
+            weaponDamage: this.weaponDamage,
+            weaponDamageArmourPiercing: this.weaponDamageArmourPiercing,
+            armor: this.armor,
+        });
+    }
 }
