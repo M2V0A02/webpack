@@ -13,28 +13,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "createAnalytics": () => (/* binding */ createAnalytics)
 /* harmony export */ });
 function createAnalytics() {
-    let counter = 0
-    let isDestroyed = false
+  var counter = 0;
+  var isDestroyed = false;
 
-    const listener = () => counter++
+  var listener = function listener() {
+    return counter++;
+  };
 
-    document.addEventListener('click', listener)
+  document.addEventListener('click', listener);
+  return {
+    destroyed: function destroyed() {
+      document.removeEventListener('click', listener);
+      isDestroyed = true;
+    },
+    getClicks: function getClicks() {
+      if (isDestroyed) {
+        return 'Analytics is destroyed';
+      }
 
-    return {
-        destroyed() {
-            document.removeEventListener('click', listener)
-            isDestroyed = true
-        },
-
-        getClicks() {
-            if (isDestroyed) {
-                return 'Analytics is destroyed'
-            }
-            return counter
-        }
+      return counter;
     }
+  };
 }
-
 
 /***/ }),
 
@@ -48,37 +48,48 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Unit": () => (/* binding */ Unit)
 /* harmony export */ });
-class Unit{
-    constructor(name, size, health, leadership, meleeAttack, meleeDefence,
-        chargeBonus, weaponDamageArmourPiercing, weaponDamage, armor){
-        this.name = name;
-        this.size = size;
-        this.health = health;
-        this.leadership = leadership;
-        this.meleeAttack = meleeAttack;
-        this.meleeDefence = meleeDefence;
-        this.chargeBonus = chargeBonus;
-        this.weaponDamage = weaponDamage;
-        this.weaponDamageArmourPiercing = weaponDamageArmourPiercing;
-        this.armor = armor;
-    }; 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-    toString() {
-        return JSON.stringify( {
-            name: this.title,
-            size: this.date,
-            health: this.health,
-            leadership: this.leadership,
-            meleeAttack: this.meleeAttack,
-            meleeDefence: this.meleeDefence,
-            chargeBonus: this.chargeBonus,
-            weaponDamage: this.weaponDamage,
-            weaponDamageArmourPiercing: this.weaponDamageArmourPiercing,
-            armor: this.armor,
-        });
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+var Unit = /*#__PURE__*/function () {
+  function Unit(name, size, health, leadership, meleeAttack, meleeDefence, chargeBonus, weaponDamageArmourPiercing, weaponDamage, armor) {
+    _classCallCheck(this, Unit);
+
+    this.name = name;
+    this.size = size;
+    this.health = health;
+    this.leadership = leadership;
+    this.meleeAttack = meleeAttack;
+    this.meleeDefence = meleeDefence;
+    this.chargeBonus = chargeBonus;
+    this.weaponDamage = weaponDamage;
+    this.weaponDamageArmourPiercing = weaponDamageArmourPiercing;
+    this.armor = armor;
+  }
+
+  _createClass(Unit, [{
+    key: "toString",
+    value: function toString() {
+      return JSON.stringify({
+        name: this.title,
+        size: this.date,
+        health: this.health,
+        leadership: this.leadership,
+        meleeAttack: this.meleeAttack,
+        meleeDefence: this.meleeDefence,
+        chargeBonus: this.chargeBonus,
+        weaponDamage: this.weaponDamage,
+        weaponDamageArmourPiercing: this.weaponDamageArmourPiercing,
+        armor: this.armor
+      });
     }
-}
+  }]);
 
+  return Unit;
+}();
 
 /***/ })
 
@@ -149,8 +160,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _analytics__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./analytics */ "./src/js/analytics.js");
 
 
-window.analytics = (0,_analytics__WEBPACK_IMPORTED_MODULE_1__.createAnalytics)()
-let test = new _unit__WEBPACK_IMPORTED_MODULE_0__.Unit("peasant", 120, 80, 60, 20, 20, 10, 5, 20, 20);
+window.analytics = (0,_analytics__WEBPACK_IMPORTED_MODULE_1__.createAnalytics)();
+var test = new _unit__WEBPACK_IMPORTED_MODULE_0__.Unit("peasant", 120, 80, 60, 20, 20, 10, 5, 20, 20);
 content.innerHTML = test.toString();
 })();
 
