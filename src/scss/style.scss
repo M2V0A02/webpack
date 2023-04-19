@@ -1,0 +1,32 @@
+/* Задний фон для страницы */
+body {
+    background-color: #f2f2f2;
+  }
+  
+  /* Цвет текста для заголовков */
+  h1, h2, h3 {
+    color: #333;
+  }
+  
+  /* Стиль для ссылок */
+  a {
+    color: #0077cc;
+    text-decoration: none;
+  }
+  
+  /* Отступы для текста */
+  p {
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  
+  /* Стиль для кнопок */
+  button {
+    background-color: #0077cc;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+  }
+  
