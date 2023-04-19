@@ -19,8 +19,8 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-           filename: 'style.css'
+           filename: path.join('..', 'css', 'style.css'),
         }),
-        new CssMinimizerPlugin(),
+        // new CssMinimizerPlugin(),
     ]
 }

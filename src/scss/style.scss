@@ -1,32 +1,16 @@
-/* Задний фон для страницы */
-body {
-    background-color: #f2f2f2;
-  }
-  
-  /* Цвет текста для заголовков */
-  h1, h2, h3 {
-    color: #333;
-  }
-  
-  /* Стиль для ссылок */
-  a {
-    color: #0077cc;
-    text-decoration: none;
-  }
-  
-  /* Отступы для текста */
-  p {
-    margin-bottom: 16px;
-    line-height: 1.5;
-  }
-  
-  /* Стиль для кнопок */
-  button {
-    background-color: #0077cc;
-    color: #fff;
-    padding: 8px 16px;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-  }
-  
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+/*--------------------------------------------------------------------*/
+/* Change theme-colors */
+$theme-colors: (
+                primary: #234d7b,
+                secondary: #3b3c3e,
+                success: #1e6111,
+                info:  #64c3d2,
+                warning: #f5e74a,
+                danger: #820410
+                );
+        
+/*--------------------------------------------------------------------*/
+/* === Bootstrap Main SCSS === */
+@import "bootstrap/scss/bootstrap";
